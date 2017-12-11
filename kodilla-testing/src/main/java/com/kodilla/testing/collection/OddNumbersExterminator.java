@@ -25,6 +25,7 @@ public class OddNumbersExterminator {
                 evenNumbersArrayList.add(element);
             }
         }
+        //System.out.println(evenNumbersArrayList.size());
         return evenNumbersArrayList;
     }
 }
@@ -41,6 +42,7 @@ class RandomArrayOfNumbersGenerator {
             Integer number = randomNumber.nextInt(10);
             numbers.add(number);
         }
+        //System.out.println(numbers.size());
         return numbers;
     }
 }
