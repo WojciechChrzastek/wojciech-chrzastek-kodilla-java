@@ -1,25 +1,23 @@
 package com.kodilla.stream;
+
 import com.kodilla.stream.forumuser.Forum;
 import com.kodilla.stream.forumuser.ForumUser;
+
+import java.util.function.Function;
 import java.util.stream.Collectors;
 import java.time.LocalDate;
 import java.util.Map;
 
-/*import com.kodilla.stream.beautifier.PoemBeautifier;
-import com.kodilla.stream.iterate.NumbersGenerator;
-import com.kodilla.stream.lambda.ExpressionExecutor;
-import com.kodilla.stream.person.People;
-import com.kodilla.stream.reference.FunctionalCalculator;*/
 
 public class StreamMain {
     public static void main(String[] args) {
         Forum forum = new Forum();
 
         Map<Integer, ForumUser> mapOfForumUsers = forum.getUserList().stream()
-                .filter(forumUser -> forumUser.getUserSex() == 'm')
-                .filter(forumUser -> forumUser.getUserDateOfBirth().isBefore(LocalDate.now().minusYears(20)))
-                .filter(forumUser -> forumUser.getUserPostsCount() >= 1)
-                .collect(Collectors.toMap(ForumUser::getUserId, forumUser -> forumUser));
+                .filter(forumUser -> forumUser.getSex() == 'm')
+                .filter(forumUser -> forumUser.getDateOfBirth().isBefore(LocalDate.now().minusYears(20)))
+                .filter(forumUser -> forumUser.getPostsCount() >= 1)
+                .collect(Collectors.toMap(ForumUser::getId, Function.identity()));
 
         System.out.println("# of elements in the map: " + mapOfForumUsers.size());
         mapOfForumUsers.entrySet().stream()
@@ -28,7 +26,26 @@ public class StreamMain {
     }
 }
 
-/*import com.kodilla.stream.book.Book;
+
+
+/*
+import com.kodilla.stream.beautifier.PoemBeautifier;
+import com.kodilla.stream.iterate.NumbersGenerator;
+import com.kodilla.stream.lambda.ExpressionExecutor;
+import com.kodilla.stream.person.People;
+import com.kodilla.stream.reference.FunctionalCalculator;
+
+import com.kodilla.stream.world.World;
+
+public class StreamMain {
+    public static void main(String[] args) {
+        System.out.println(World.getContinentList());
+    }
+}
+
+
+
+import com.kodilla.stream.book.Book;
 import com.kodilla.stream.book.BookDirectory;
 import java.util.Map;
 import java.util.stream.Collectors;

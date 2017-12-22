@@ -3,48 +3,48 @@ package com.kodilla.stream.forumuser;
 import java.time.LocalDate;
 
 public class ForumUser {
-    private final int userId;
-    private final String userName;
-    private final char userSex; //tylko wartości ‘M’/’F’?
-    private final LocalDate userDateOfBirth;
-    private final int userPostsCount;
+    private final int id;
+    private final String name;
+    private final char sex; //tylko wartości ‘M’/’F’?
+    private final LocalDate dateOfBirth;
+    private final int postsCount;
 
-    public ForumUser(int userId, String userName, char userSex, LocalDate userDateOfBirth, int userPostsCount) {
-        this.userId = userId;
-        this.userName = userName;
-        this.userSex = userSex;
-        this.userDateOfBirth = userDateOfBirth;
-        this.userPostsCount = userPostsCount;
+    public ForumUser(int id, String name, char sex, LocalDate dateOfBirth, int postsCount) {
+        this.id = id;
+        this.name = name;
+        this.sex = sex;
+        this.dateOfBirth = dateOfBirth;
+        this.postsCount = postsCount;
     }
 
-    public int getUserId() {
-        return userId;
+    public int getId() {
+        return id;
     }
 
-    public String getUserName() {
-        return userName;
+    public String getName() {
+        return name;
     }
 
-    public char getUserSex() {
-        return userSex;
+    public char getSex() {
+        return sex;
     }
 
-    public LocalDate getUserDateOfBirth() {
-        return userDateOfBirth;
+    public LocalDate getDateOfBirth() {
+        return dateOfBirth;
     }
 
-    public int getUserPostsCount() {
-        return userPostsCount;
+    public int getPostsCount() {
+        return postsCount;
     }
 
     @Override
     public String toString() {
         return "ForumUser{" +
-                "userId=" + userId +
-                ", userName='" + userName + '\'' +
-                ", userSex=" + userSex +
-                ", userDateOfBirth=" + userDateOfBirth +
-                ", userPostsCount=" + userPostsCount +
+                "id=" + id +
+                ", name='" + name + '\'' +
+                ", sex=" + sex +
+                ", dateOfBirth=" + dateOfBirth +
+                ", postsCount=" + postsCount +
                 '}';
     }
 }
