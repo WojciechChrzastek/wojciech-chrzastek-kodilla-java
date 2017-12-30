@@ -20,13 +20,11 @@ public class FlightFinder {
     public void findFlight(Flight flight) throws RouteNotFoundException {
         String flightDepartureAirport = flight.getDepartureAirport();
         if (!flightMap.containsKey(flightDepartureAirport)) {
-            System.out.println("The flight has not been found. (" + flight.getDepartureAirport() + " -> " + flight.getArrivalAirport() + ")");
             throw new RouteNotFoundException();
         } else {
             List<String> flightPossibilities = flightMap.get(flightDepartureAirport);
             String flightArrivalAirport = flight.getArrivalAirport();
             if (!flightPossibilities.contains(flightArrivalAirport)) {
-                System.out.println("The flight has not been found. (" + flight.getDepartureAirport() + " -> " + flight.getArrivalAirport() + ")");
                 throw new RouteNotFoundException();
             }
         }
