@@ -7,6 +7,7 @@ import java.time.LocalDate;
 import java.time.Period;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.OptionalDouble;
 
 import static java.util.stream.Collectors.toList;
 
@@ -161,9 +162,18 @@ public class BoardTestSuite {
 
         double average = sumOfWorkingOnTaskDays / inProgressTasksNumber;
 
+        double averageCollector = project.getTaskLists().stream()
+                .filter(inProgressTasks::contains)
+                .flatMap(t -> t.getTasks().stream())
+                .map(t -> Period.between(t.getCreated(), LocalDate.now()).getDays())
+                .mapToLong(t -> t)
+                .average()
+                .getAsDouble();
+
         //Then
         Assert.assertEquals(3, inProgressTasksNumber);
         Assert.assertEquals(30, sumOfWorkingOnTaskDays);
         Assert.assertEquals(10, average, 0);
+        Assert.assertEquals(10, averageCollector, 0);
     }
 }
