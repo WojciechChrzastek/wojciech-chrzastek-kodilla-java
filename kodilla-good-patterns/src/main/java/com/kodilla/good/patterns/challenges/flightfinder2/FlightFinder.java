@@ -21,7 +21,7 @@ public final class FlightFinder {
         String flightsFrom = flightMap.entrySet().stream()
                 .filter(f -> f.getKey().equals(departureAirport.getAirport()))
                 .map(Map.Entry::getValue)
-                .map(Object::toString)
+                .flatMap(Collection::stream)
                 .collect(Collectors.joining(", "));
         System.out.println("From " + departureAirport.getAirport() + " you can fly to" + ": " + flightsFrom);
     }
