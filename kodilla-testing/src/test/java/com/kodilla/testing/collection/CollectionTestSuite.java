@@ -2,8 +2,21 @@ package com.kodilla.testing.collection;
 
 import org.junit.*;
 import java.util.ArrayList;
+import java.util.Random;
 
 public class CollectionTestSuite {
+
+    private ArrayList<Integer> generateRandomArrayOfNumbers(int numbersQuantity) {
+        Random randomNumber = new Random();
+        ArrayList<Integer> numbers = new ArrayList<>();
+
+        for (int i = 0; i < numbersQuantity; i++) {
+            Integer number = randomNumber.nextInt(10);
+            numbers.add(number);
+        }
+        return numbers;
+    }
+
     @Before
     public void before() {
         System.out.println("Test Case: begin");
@@ -28,11 +41,13 @@ public class CollectionTestSuite {
     public void testOddNumbersExterminatorEmptyList() {
         //Given
         OddNumbersExterminator oddNumbersExterminator = new OddNumbersExterminator();
+        ArrayList<Integer> emptyArray = generateRandomArrayOfNumbers(0);
         //When
-        int randomArraySize = oddNumbersExterminator.generateRandomArrayOfNumbers().size();
-        System.out.println("Testing empty list... List size: " + randomArraySize + " > 0, so the list is not empty.");
+        ArrayList<Integer> evenArray = oddNumbersExterminator.exterminate(emptyArray);
+        int evenArraySize = evenArray.size();
+        System.out.println("Testing empty list... List size = " + evenArraySize + ", so the list is empty.");
         //Then
-        Assert.assertTrue(randomArraySize > 0);
+        Assert.assertTrue(evenArraySize == 0);
     }
 
     @Test //czy klasa zachowuje się poprawnie gdy lista zawiera liczby parzyste i nieparzyste
@@ -40,7 +55,7 @@ public class CollectionTestSuite {
         //Given
         OddNumbersExterminator oddNumbersExterminator = new OddNumbersExterminator();
         //When
-        ArrayList<Integer> randomArray = oddNumbersExterminator.generateRandomArrayOfNumbers();
+        ArrayList<Integer> randomArray = generateRandomArrayOfNumbers(10);
         ArrayList<Integer> evenArray = oddNumbersExterminator.exterminate(randomArray);
         int randomArraySize = randomArray.size();
         int evenArraySize = evenArray.size();
