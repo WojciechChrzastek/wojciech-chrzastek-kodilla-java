@@ -2,11 +2,18 @@ package com.kodilla.testing.shape;
 
 public class Circle implements Shape {
 
-    public void getShapeName() {
-        System.out.println("This is a circle.");
+    private double r;
+
+    public Circle(double r) {
+        this.r = r;
     }
 
-    public void getField() {
-        System.out.println("Field of a circle =  3,14 * r^");
+    @Override
+    public String getShapeName() {
+        return "circle";
+    }
+
+    public double getField() {
+        return Math.PI * r;
     }
 }

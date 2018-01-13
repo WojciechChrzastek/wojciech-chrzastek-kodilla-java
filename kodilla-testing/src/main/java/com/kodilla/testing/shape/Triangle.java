@@ -2,11 +2,20 @@ package com.kodilla.testing.shape;
 
 public class Triangle implements Shape {
 
-    public void getShapeName() {
-        System.out.println("This is a triangle.");
+    private double a;
+    private double h;
+
+    public Triangle(double a, double h) {
+        this.a = a;
+        this.h = h;
     }
 
-    public void getField() {
-        System.out.println("Field of a triangle =  0,5 * a * h^");
+    @Override
+    public String getShapeName() {
+        return "triangle";
+    }
+
+    public double getField() {
+        return 0.5 * a * h;
     }
 }

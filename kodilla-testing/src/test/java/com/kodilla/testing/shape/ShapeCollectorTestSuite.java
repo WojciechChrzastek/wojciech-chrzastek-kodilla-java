@@ -2,67 +2,61 @@ package com.kodilla.testing.shape;
 
 import org.junit.*;
 
-import java.util.ArrayList;
+import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertTrue;
 
 public class ShapeCollectorTestSuite {
-    @Before
-    public void before() {
-        System.out.println("Test Case: begin");
-    }
-    @After
-    public void after() {
-        System.out.println("Test Case: end");
-    }
-    @BeforeClass
-    public static void beforeClass() {
-        System.out.println("Test Suite: begin");
-    }
-    @AfterClass
-    public static void afterClass() {
-        System.out.println("Test Suite: end");
-    }
-
     @Test //czy klasa zachowuje się poprawnie gdy dodawana jest figura do kolekcji
     public void testAddFigure() {
         //Given
-        ArrayList<Shape> figures = new ArrayList<Shape>();
-        int initialSize  = figures.size();
+        final ShapeCollector shapeCollector = new ShapeCollector();
+        final Shape shape1 = new Circle(5);
         //When
-        figures.add(new Shape());
-        int result = figures.size();
+        shapeCollector.addFigure(shape1);
         //Then
-        Assert.assertTrue(result > initialSize);
+        assertEquals(shape1, shapeCollector.getFigure(0));
     }
 
     @Test //czy klasa zachowuje się poprawnie gdy usuwana jest figura z kolekcji
     public void testRemoveFigure() {
         //Given
-        ArrayList<Shape> figures = new ArrayList<Shape>();
-        int initialSize  = figures.size();
+        final ShapeCollector shapeCollector = new ShapeCollector();
+        final Shape shape = new Circle(5);
+        shapeCollector.addFigure(shape);
+        int initialSize = shapeCollector.figures.size();
         //When
-        figures.remove(new Shape());
-        int result = figures.size();
+        shapeCollector.removeFigure(shape);
+        int result = shapeCollector.figures.size();
         //Then
-        Assert.assertTrue(result < initialSize);
+        assertTrue(result < initialSize);
     }
 
     @Test //czy klasa zachowuje się poprawnie gdy pobierana jest figura z pozycji n listy
     public void testGetFigure() {
         //Given
-
+        final ShapeCollector shapeCollector = new ShapeCollector();
+        final Shape shape = new Circle(5);
+        shapeCollector.addFigure(shape);
         //When
-
+        Shape nFigure = shapeCollector.getFigure(0);
         //Then
-
-      }
+        assertEquals(shape, nFigure);
+    }
 
     @Test //czy klasa zachowuje się poprawnie gdy pobierana jest wyswietlane sa figury z kolekcji
     public void testShowFigures() {
         //Given
-
+        final ShapeCollector shapeCollector = new ShapeCollector();
+        final Shape shape1 = new Circle(5);
+        final Shape shape2 = new Triangle(5, 5);
+        final Shape shape3 = new Square(5);
+        shapeCollector.addFigure(shape1);
+        shapeCollector.addFigure(shape2);
+        shapeCollector.addFigure(shape3);
         //When
-
+        shapeCollector.showFigures();
         //Then
-
+        System.out.println("Is there a visual difference between above and below?");
+        System.out.println("[" + shape1 + ", " + shape2 + ", " + shape3 + "]");
     }
 }
