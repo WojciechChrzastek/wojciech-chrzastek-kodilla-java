@@ -15,4 +15,3 @@ public class OddNumbersExterminator {
         return evenNumbersArrayList;
     }
 }
-

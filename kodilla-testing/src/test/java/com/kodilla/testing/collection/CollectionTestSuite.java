@@ -4,18 +4,9 @@ import org.junit.*;
 import java.util.ArrayList;
 import java.util.Random;
 
+import static org.junit.Assert.assertTrue;
+
 public class CollectionTestSuite {
-
-    private ArrayList<Integer> generateRandomArrayOfNumbers(int numbersQuantity) {
-        Random randomNumber = new Random();
-        ArrayList<Integer> numbers = new ArrayList<>();
-
-        for (int i = 0; i < numbersQuantity; i++) {
-            Integer number = randomNumber.nextInt(10);
-            numbers.add(number);
-        }
-        return numbers;
-    }
 
     @Before
     public void before() {
@@ -40,20 +31,20 @@ public class CollectionTestSuite {
     @Test //czy klasa zachowuje się poprawnie gdy lista jest pusta
     public void testOddNumbersExterminatorEmptyList() {
         //Given
-        OddNumbersExterminator oddNumbersExterminator = new OddNumbersExterminator();
-        ArrayList<Integer> emptyArray = generateRandomArrayOfNumbers(0);
+        final OddNumbersExterminator oddNumbersExterminator = new OddNumbersExterminator();
+        final ArrayList<Integer> emptyArray = generateRandomArrayOfNumbers(0);
         //When
         ArrayList<Integer> evenArray = oddNumbersExterminator.exterminate(emptyArray);
         int evenArraySize = evenArray.size();
         System.out.println("Testing empty list... List size = " + evenArraySize + ", so the list is empty.");
         //Then
-        Assert.assertTrue(evenArraySize == 0);
+        assertTrue(evenArraySize == 0);
     }
 
     @Test //czy klasa zachowuje się poprawnie gdy lista zawiera liczby parzyste i nieparzyste
     public void testOddNumbersExterminatorNormalList() {
         //Given
-        OddNumbersExterminator oddNumbersExterminator = new OddNumbersExterminator();
+        final OddNumbersExterminator oddNumbersExterminator = new OddNumbersExterminator();
         //When
         ArrayList<Integer> randomArray = generateRandomArrayOfNumbers(10);
         ArrayList<Integer> evenArray = oddNumbersExterminator.exterminate(randomArray);
@@ -66,6 +57,17 @@ public class CollectionTestSuite {
         System.out.println("Testing odd and even... Odd and even list size - even list size = odd list size = " + oddArraySize);
         System.out.println(oddArraySize + " > 0, so the list has odd and even numbers.");
         //Then
-        Assert.assertTrue(oddArraySize > 0);
+        assertTrue(oddArraySize > 0);
+    }
+
+    private ArrayList<Integer> generateRandomArrayOfNumbers(int numbersQuantity) {
+        Random randomNumber = new Random();
+        ArrayList<Integer> numbers = new ArrayList<>();
+
+        for (int i = 0; i < numbersQuantity; i++) {
+            Integer number = randomNumber.nextInt(10);
+            numbers.add(number);
+        }
+        return numbers;
     }
 }
