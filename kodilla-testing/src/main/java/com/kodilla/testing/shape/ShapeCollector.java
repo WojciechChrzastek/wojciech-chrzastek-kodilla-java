@@ -22,7 +22,8 @@ public class ShapeCollector {
         return null;
     }
 
-    public void showFigures() {
-        System.out.println(figures);
+    public String showFigures() {
+        String showFigures = figures.toString();
+        return showFigures;
     }
 }
