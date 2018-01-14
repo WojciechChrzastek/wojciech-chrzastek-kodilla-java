@@ -56,6 +56,6 @@ public class ShapeCollectorTestSuite {
         //When
         String figures = shapeCollector.showFigures();
         //Then
-        Assert.assertEquals("[" + shape1 + ", " + shape2 + ", " + shape3 + "]" , figures);
+        assertEquals("[" + shape1 + ", " + shape2 + ", " + shape3 + "]" , figures);
     }
 }
