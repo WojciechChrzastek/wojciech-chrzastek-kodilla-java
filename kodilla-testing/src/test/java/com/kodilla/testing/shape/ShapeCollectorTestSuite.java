@@ -54,9 +54,8 @@ public class ShapeCollectorTestSuite {
         shapeCollector.addFigure(shape2);
         shapeCollector.addFigure(shape3);
         //When
-        System.out.println(shapeCollector.showFigures());
+        String figures = shapeCollector.showFigures();
         //Then
-        System.out.println("Is there a visual difference between above and below?");
-        System.out.println("[" + shape1 + ", " + shape2 + ", " + shape3 + "]");
+        Assert.assertEquals("[" + shape1 + ", " + shape2 + ", " + shape3 + "]" , figures);
     }
 }
