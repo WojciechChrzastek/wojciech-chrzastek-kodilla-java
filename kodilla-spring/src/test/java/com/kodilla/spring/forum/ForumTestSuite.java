@@ -21,7 +21,6 @@ public class ForumTestSuite {
         //When
         String username = forumUser.getUsername();
         //Then
-        Assert.assertEquals("John Smithgit", username);
-
+        Assert.assertEquals("John Smith", username);
     }
 }
