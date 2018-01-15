@@ -1,12 +1,13 @@
 package com.kodilla.spring.forum;
 
-import org.junit.Assert;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.annotation.AnnotationConfigApplicationContext;
 import org.springframework.test.context.junit4.SpringRunner;
+
+import static org.junit.Assert.assertEquals;
 
 
 @RunWith(SpringRunner.class)
@@ -21,6 +22,6 @@ public class ForumTestSuite {
         //When
         String username = forumUser.getUsername();
         //Then
-        Assert.assertEquals("John Smith", username);
+        assertEquals("John Smith", username);
     }
 }
