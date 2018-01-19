@@ -4,6 +4,7 @@ public final class ShoppingTask implements Task {
     final String taskName;
     final String whatToBuy;
     final double quantity;
+    boolean isExecuted;
 
     public ShoppingTask(final String taskName, final String whatToBuy, final double quantity) {
         this.taskName = taskName;
@@ -13,6 +14,7 @@ public final class ShoppingTask implements Task {
 
     @Override
     public String executeTask() {
+        isExecuted = true;
         return null;
     }
 
@@ -23,6 +25,6 @@ public final class ShoppingTask implements Task {
 
     @Override
     public boolean isTaskExecuted() {
-        return false;
+        return isExecuted;
     }
 }
