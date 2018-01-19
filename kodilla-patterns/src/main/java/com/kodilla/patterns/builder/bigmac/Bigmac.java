@@ -10,11 +10,6 @@ public class Bigmac {
     private final List<String> ingredients;
 
     public static class BigmacBuilder {
-        private String rollType;
-        private int burgers;
-        private String sauce;
-        private List<String> ingredients = new ArrayList<>();
-
         private static final String ROLL_WITH_SESAME = "with sesame";
         private static final String ROLL_WITHOUT_SESAME = "without sesame";
         private static final String STANDARD_SAUCE = "standard";
@@ -24,10 +19,15 @@ public class Bigmac {
         private static final String ONION = "onion";
         private static final String BACON = "bacon";
         private static final String CUCUMBER = "cucumber";
-        private static final String CHILLI_PEPPERS = "chilli peppers";
+        private static final String CHILI_PEPPERS = "chilli peppers";
         private static final String MUSHROOMS = "mushrooms";
         private static final String SHRIMPS = "shrimps";
         private static final String CHEESE = "cheese";
+
+        private String rollType;
+        private int burgers;
+        private String sauce;
+        private List<String> ingredients = new ArrayList<>();
 
         public BigmacBuilder rollType(String rollType) {
             if (rollType.equals(ROLL_WITH_SESAME) || rollType.equals(ROLL_WITHOUT_SESAME)) {
@@ -54,11 +54,11 @@ public class Bigmac {
 
         public BigmacBuilder ingredient(String ingredient) {
             if (ingredient.equals(LETTUCE) || ingredient.equals(ONION) || ingredient.equals(BACON) ||
-                    ingredient.equals(CUCUMBER) || ingredient.equals(CHILLI_PEPPERS) || ingredient.equals(MUSHROOMS) ||
+                    ingredient.equals(CUCUMBER) || ingredient.equals(CHILI_PEPPERS) || ingredient.equals(MUSHROOMS) ||
                     ingredient.equals(SHRIMPS) || ingredient.equals(CHEESE)) {
                 ingredients.add(ingredient);
             } else {
-                throw new IllegalStateException("Please choose only from following ingredients: lettuce, onion, bacon, cucumber, chilli peppers, mushrooms, shrimps, cheese.");
+                throw new IllegalStateException("Please choose only from following ingredients: lettuce, onion, bacon, cucumber, chili peppers, mushrooms, shrimps, cheese.");
             }
             return this;
         }
