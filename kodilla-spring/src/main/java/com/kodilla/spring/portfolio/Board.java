@@ -1,10 +1,6 @@
 package com.kodilla.spring.portfolio;
 
-import org.springframework.stereotype.Service;
-
-@Service
 public final class Board {
-
     private final TaskList toDoList;
     private final TaskList inProgressList;
     private final TaskList doneList;
