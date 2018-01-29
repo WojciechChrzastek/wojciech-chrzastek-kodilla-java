@@ -17,6 +17,10 @@ import java.util.Arrays;
 @SpringBootTest
 public class InvoiceDaoTestSuite {
     @Autowired
+    ProductDao productDao;
+    @Autowired
+    ItemDao itemDao;
+    @Autowired
     InvoiceDao invoiceDao;
 
     @Test
@@ -31,13 +35,20 @@ public class InvoiceDaoTestSuite {
         Invoice invoice1 = new Invoice("001", Arrays.asList(item1, item2));
 
         //When
+        productDao.save(product1);
+        productDao.save(product2);
         invoiceDao.save(invoice1);
-        int invoice1ID = invoice1.getId();
 
         //Then
-        Assert.assertNotEquals(0, invoice1ID);
+        Assert.assertNotEquals(0, product1.getId());
+        Assert.assertNotEquals(0, product2.getId());
+        Assert.assertNotEquals(0, invoice1.getId());
 
         //CleanUp
         invoiceDao.delete(invoice1);
+        itemDao.delete(item1);
+        itemDao.delete(item2);
+        //productDao.delete(product1);
+        //productDao.delete(product2);
     }
 }
