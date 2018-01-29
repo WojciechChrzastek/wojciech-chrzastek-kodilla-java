@@ -97,18 +97,19 @@ public class CompanyDaoTestSuite {
 
         //When
         List<Employee> employeesByGivenLastname = employeeDao.retrieveEmployeesByGivenLastname("Smith");
-        List<Company> companiesByGivenNameSigns = companyDao.retrieveCompaniesByGivenNameSigns("Son");
+        List<Company> companiesByGivenNameSigns = companyDao.retrieveCompaniesByGivenNameSigns("Sof%");
 
         //Then
-        try {
-            Assert.assertEquals(1, employeesByGivenLastname.size());
-            Assert.assertEquals(1, companiesByGivenNameSigns.size());
+        Assert.assertEquals(36, employeesByGivenLastname.size());
+        Assert.assertEquals(36, companiesByGivenNameSigns.size());
 
-        } finally {
-            //CleanUp
+        //CleanUp
+        try {
+            companyDao.delete(softwareMachineId);
+            companyDao.delete(dataMaestersId);
+            companyDao.delete(greyMatterId);
+        } catch (Exception e) {
+            //do nothing
         }
-        companyDao.delete(softwareMachineId);
-        companyDao.delete(dataMaestersId);
-        companyDao.delete(greyMatterId);
     }
 }
