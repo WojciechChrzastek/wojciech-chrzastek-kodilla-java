@@ -20,7 +20,28 @@ public class ForumStatisticsTestSuite {
         int usersCount = 100;
         List<String> usersNamesList = generateListOfNUsersNames(usersCount);
         int postsCount = 1000;
-        int commentsCount = 10;
+        int commentsCount = 5000;
+        double avgCommentCountPerPost;
+        double avgCommentCountPerUser;
+        double avgPostCountPerUser;
+
+        if (commentsCount != 0 && postsCount != 0) {
+            avgCommentCountPerPost = commentsCount / postsCount;
+        } else {
+            avgCommentCountPerPost = 0;
+        }
+
+        if (usersCount != 0 && postsCount != 0) {
+            avgCommentCountPerUser = commentsCount / usersCount;
+        } else {
+            avgCommentCountPerUser = 0;
+        }
+
+        if (usersCount != 0 && postsCount != 0) {
+            avgPostCountPerUser = postsCount / usersCount;
+        } else {
+            avgPostCountPerUser = 0;
+        }
 
         when(statisticsMock.usersNames()).thenReturn(usersNamesList);
         when(statisticsMock.postsCount()).thenReturn(postsCount);
@@ -31,9 +52,9 @@ public class ForumStatisticsTestSuite {
         statisticsCalculator.showStatistics();
 
         //Then
-        assertEquals(commentsCount / postsCount, statisticsCalculator.getAvgCommentCountPerPost(), 0);
-        assertEquals(commentsCount / usersCount, statisticsCalculator.getAvgCommentCountPerUser(), 0);
-        assertEquals(postsCount / usersCount, statisticsCalculator.getAvgPostCountPerUser(), 0);
+        assertEquals(avgCommentCountPerPost, statisticsCalculator.getAvgCommentCountPerPost(), 0);
+        assertEquals(avgCommentCountPerUser, statisticsCalculator.getAvgCommentCountPerUser(), 0);
+        assertEquals(avgPostCountPerUser, statisticsCalculator.getAvgPostCountPerUser(), 0);
     }
 
     private List<String> generateListOfNUsersNames(int usersCount) {

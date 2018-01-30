@@ -12,9 +12,24 @@ public class StatisticsCalculator {
         userCount = statistics.usersNames().size();
         postCount = statistics.postsCount();
         commentCount = statistics.commentsCount();
-        avgPostCountPerUser = postCount / userCount;
-        avgCommentCountPerUser = commentCount / userCount;
-        avgCommentCountPerPost = commentCount / postCount;
+
+        if (userCount != 0 && postCount != 0) {
+            avgPostCountPerUser = postCount / userCount;
+        } else {
+            avgPostCountPerUser = 0;
+        }
+
+        if (userCount != 0 && commentCount != 0) {
+            avgCommentCountPerUser = commentCount / userCount;
+        } else {
+            avgCommentCountPerUser = 0;
+        }
+
+        if (commentCount != 0 && postCount != 0) {
+            avgCommentCountPerPost = commentCount / postCount;
+        } else {
+            avgCommentCountPerPost = 0;
+        }
     }
 
     public void showStatistics() {
