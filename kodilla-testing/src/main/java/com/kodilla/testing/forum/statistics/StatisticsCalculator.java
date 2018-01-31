@@ -1,5 +1,8 @@
 package com.kodilla.testing.forum.statistics;
 
+import java.text.DecimalFormat;
+import java.text.NumberFormat;
+
 public class StatisticsCalculator {
     private int userCount;
     private int postCount;
@@ -33,13 +36,14 @@ public class StatisticsCalculator {
     }
 
     public void showStatistics() {
+        NumberFormat formatter = new DecimalFormat("#0.00");
         System.out.println("Statistics:\n"
                 + "User count = " + userCount + "\n"
                 + "Post count = " + postCount + "\n"
                 + "Comment count = " + commentCount + "\n"
-                + "Average post count per user = " + avgPostCountPerUser + "\n"
-                + "Average comment count per user = " + avgCommentCountPerUser + "\n"
-                + "Average comment count per post = " + avgCommentCountPerPost);
+                + "Average post count per user = " + formatter.format(avgPostCountPerUser) + "\n"
+                + "Average comment count per user = " + formatter.format(avgCommentCountPerUser) + "\n"
+                + "Average comment count per post = " + formatter.format(avgCommentCountPerPost));
     }
 
     public int getUserCount() {
