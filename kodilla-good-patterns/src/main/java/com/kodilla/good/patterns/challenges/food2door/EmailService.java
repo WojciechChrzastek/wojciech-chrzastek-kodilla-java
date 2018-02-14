@@ -1,10 +1,22 @@
 package com.kodilla.good.patterns.challenges.food2door;
 
+import com.kodilla.good.patterns.challenges.food2door.producer.Producer;
+import com.kodilla.good.patterns.challenges.food2door.producer.ProducerInformationService;
+import com.kodilla.good.patterns.challenges.food2door.user.User;
+import com.kodilla.good.patterns.challenges.food2door.user.UserInformationService;
+
 public class EmailService implements UserInformationService, ProducerInformationService {
-    public void informUser(User user) {
-        System.out.println("Sending a confirmation email to: " + user.getRealName());
+
+    public boolean sendEmail(String to, String body) {
+        System.out.println("Sending email: " + body + " to: " + to);
+        return true;
     }
+
     public void informProducer(Producer producer) {
-        System.out.println("Sending a confirmation email to: " + producer.getClass());
+        sendEmail("extra food shop", "email body");
+    }
+
+    public void informUser(User user) {
+        sendEmail(user.getUsername(), "Dear Mr " + user.getRealName() + "...");
     }
 }
