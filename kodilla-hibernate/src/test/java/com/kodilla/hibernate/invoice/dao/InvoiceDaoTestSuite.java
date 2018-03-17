@@ -48,7 +48,5 @@ public class InvoiceDaoTestSuite {
         invoiceDao.delete(invoice1);
         itemDao.delete(item1);
         itemDao.delete(item2);
-        //productDao.delete(product1);
-        //productDao.delete(product2);
     }
 }
