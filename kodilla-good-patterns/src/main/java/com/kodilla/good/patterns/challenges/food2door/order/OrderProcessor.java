@@ -1,6 +1,5 @@
 package com.kodilla.good.patterns.challenges.food2door.order;
 
-
 import com.kodilla.good.patterns.challenges.food2door.producer.ExtraFoodShop;
 import com.kodilla.good.patterns.challenges.food2door.producer.Producer;
 import com.kodilla.good.patterns.challenges.food2door.producer.ProducerInformationService;
@@ -26,7 +25,7 @@ public class OrderProcessor {
 
     public OrderDto process(final OrderRequest orderRequest) {
         boolean isOrdered = productOrderService.order(orderRequest.getUser(), orderRequest.getProduct());
-        if(isOrdered) {
+        if (isOrdered) {
             userInformationService.informUser(orderRequest.getUser());
             Producer producer = new ExtraFoodShop("extra food shop");
             producerInformationService.informProducer(orderRequest.getProducer());

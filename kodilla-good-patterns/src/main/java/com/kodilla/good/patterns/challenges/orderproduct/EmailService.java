@@ -1,4 +1,4 @@
-package com.kodilla.good.patterns.challenges;
+package com.kodilla.good.patterns.challenges.orderproduct;
 
 public class EmailService implements InformationService {
     public void inform(User user) {

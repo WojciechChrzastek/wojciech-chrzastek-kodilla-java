@@ -1,7 +1,6 @@
 package com.kodilla.good.patterns.challenges.flightfinder2;
 
 import java.util.*;
-import java.util.HashMap;
 import java.util.stream.Collectors;
 
 public final class FlightFinder {
