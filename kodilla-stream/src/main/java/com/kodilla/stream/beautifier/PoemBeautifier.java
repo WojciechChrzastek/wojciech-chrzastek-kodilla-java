@@ -6,7 +6,4 @@ public class PoemBeautifier {
         String result = poemDecorator.decorate(poem);
         System.out.println("Decorated text: " + result);
     }
-
-
-
 }

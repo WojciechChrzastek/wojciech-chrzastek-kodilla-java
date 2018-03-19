@@ -1,7 +1,7 @@
 package com.kodilla.stream.world;
 
-        import java.math.BigDecimal;
-        import java.util.List;
+import java.math.BigDecimal;
+import java.util.List;
 
 public final class World {
 
