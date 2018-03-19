@@ -8,9 +8,11 @@ public class DrawerTestSuite {
     public void testDoDrawingWithCircle() {
         //Given
         Circle circle = new Circle();
+
         //When
         Drawer drawer = new Drawer(circle);
         String result = drawer.doDrawing();
+
         //Then
         Assert.assertEquals("This is a circle", result);
     }
@@ -19,9 +21,11 @@ public class DrawerTestSuite {
     public void testDoDrawingWithTriangle() {
         //Given
         Triangle triangle = new Triangle();
+
         //When
         Drawer drawer = new Drawer(triangle);
         String result = drawer.doDrawing();
+
         //Then
         Assert.assertEquals("This is a triangle", result);
     }
