@@ -18,10 +18,12 @@ public class BoardTestSuite {
         ApplicationContext context =
                 new AnnotationConfigApplicationContext("com.kodilla.spring");
         Board board = context.getBean(Board.class);
+
         //When
         board.getToDoList().tasks.add("");
         board.getInProgressList().tasks.add("");
         board.getDoneList().tasks.add("");
+
         //Then
         assertEquals("", board.getToDoList().getTasks().get(0));
         assertEquals("", board.getInProgressList().getTasks().get(0));
