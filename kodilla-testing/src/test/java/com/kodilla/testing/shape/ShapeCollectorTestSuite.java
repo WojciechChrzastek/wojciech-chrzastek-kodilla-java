@@ -1,6 +1,6 @@
 package com.kodilla.testing.shape;
 
-import org.junit.*;
+import org.junit.Test;
 
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertTrue;
@@ -11,8 +11,10 @@ public class ShapeCollectorTestSuite {
         //Given
         final ShapeCollector shapeCollector = new ShapeCollector();
         final Shape shape1 = new Circle(5);
+
         //When
         shapeCollector.addFigure(shape1);
+
         //Then
         assertEquals(shape1, shapeCollector.getFigure(0));
     }
@@ -24,9 +26,11 @@ public class ShapeCollectorTestSuite {
         final Shape shape = new Circle(5);
         shapeCollector.addFigure(shape);
         int initialSize = shapeCollector.figures.size();
+
         //When
         shapeCollector.removeFigure(shape);
         int result = shapeCollector.figures.size();
+
         //Then
         assertTrue(result < initialSize);
     }
@@ -37,8 +41,10 @@ public class ShapeCollectorTestSuite {
         final ShapeCollector shapeCollector = new ShapeCollector();
         final Shape shape = new Circle(5);
         shapeCollector.addFigure(shape);
+
         //When
         Shape nFigure = shapeCollector.getFigure(0);
+
         //Then
         assertEquals(shape, nFigure);
     }
@@ -53,9 +59,11 @@ public class ShapeCollectorTestSuite {
         shapeCollector.addFigure(shape1);
         shapeCollector.addFigure(shape2);
         shapeCollector.addFigure(shape3);
+
         //When
         String figures = shapeCollector.showFigures();
+
         //Then
-        assertEquals("[" + shape1 + ", " + shape2 + ", " + shape3 + "]" , figures);
+        assertEquals("[" + shape1 + ", " + shape2 + ", " + shape3 + "]", figures);
     }
 }

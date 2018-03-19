@@ -1,6 +1,7 @@
 package com.kodilla.testing.collection;
 
 import org.junit.*;
+
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Random;
@@ -34,10 +35,12 @@ public class CollectionTestSuite {
         //Given
         final OddNumbersExterminator oddNumbersExterminator = new OddNumbersExterminator();
         final List<Integer> emptyList = generateRandomListOfNumbers(0);
+
         //When
         List<Integer> evenList = oddNumbersExterminator.exterminate(emptyList);
         int evenListSize = evenList.size();
         System.out.println("Testing empty list... List size = " + evenListSize + ", so the list is empty.");
+
         //Then
         assertTrue(evenListSize == 0);
     }
@@ -46,6 +49,7 @@ public class CollectionTestSuite {
     public void testOddNumbersExterminatorNormalList() {
         //Given
         final OddNumbersExterminator oddNumbersExterminator = new OddNumbersExterminator();
+
         //When
         List<Integer> randomList = generateRandomListOfNumbers(10);
         List<Integer> evenList = oddNumbersExterminator.exterminate(randomList);
@@ -57,6 +61,7 @@ public class CollectionTestSuite {
         System.out.println("Even list: " + evenList + " size: " + evenListSize);
         System.out.println("Testing odd and even... Odd and even list size - even list size = odd list size = " + oddListSize);
         System.out.println(oddListSize + " > 0, so the list has odd and even numbers.");
+
         //Then
         assertTrue(oddListSize > 0);
     }
