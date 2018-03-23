@@ -1,6 +1,5 @@
 package com.kodilla.patterns2.aop.calculator;
 
-import org.junit.Assert;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.slf4j.Logger;
@@ -75,7 +74,7 @@ public class CalculatorTestSuite {
         //Given
 
         //When
-        BigDecimal result = calculator.factorial(new BigDecimal("1000"));
+        BigDecimal result = calculator.factorial(new BigDecimal("10"));
 
         //Then
         LOGGER.info("Testing factorial method");
