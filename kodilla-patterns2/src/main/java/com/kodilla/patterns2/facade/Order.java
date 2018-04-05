@@ -28,7 +28,6 @@ public class Order {
         return sum;
     }
 
-
     public List<Item> getItems() {
         return items;
     }
