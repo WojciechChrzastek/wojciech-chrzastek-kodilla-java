@@ -7,7 +7,6 @@ import com.kodilla.hibernate.manytomany.dao.EmployeeDao;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import java.util.ArrayList;
 import java.util.List;
 
 @Service
@@ -16,20 +15,15 @@ public class SearchFacade {
     private CompanyDao companyDao;
     private EmployeeDao employeeDao;
 
-    private List<Company> companiesList = new ArrayList<>();
-    private List<Employee> employeesList = new ArrayList<>();
-
     public SearchFacade(EmployeeDao employeeDao) {
         this.employeeDao = employeeDao;
     }
 
     public List<Company> retrieveCompaniesByAnyGivenNameFragment(final String nameFragment) {
-        companyDao.retrieveCompaniesByAnyGivenNameFragment(nameFragment);
-        return companiesList;
+        return companyDao.retrieveCompaniesByAnyGivenNameFragment(nameFragment);
     }
 
     public List<Employee> retrieveEmployeesByAnyGivenLastNameFragment(final String lastNameFragment) {
-        employeeDao.retrieveEmployeesByAnyGivenLastNameFragment(lastNameFragment);
-        return employeesList;
+        return employeeDao.retrieveEmployeesByAnyGivenLastNameFragment(lastNameFragment);
     }
 }

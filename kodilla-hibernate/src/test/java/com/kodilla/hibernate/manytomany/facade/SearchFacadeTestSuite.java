@@ -36,12 +36,12 @@ public class SearchFacadeTestSuite {
         int softwareMachineId = softwareMachine.getId();
 
         //When
-        List<Employee> employeesByAnyGivenLastNameFragment = searchFacade.retrieveEmployeesByAnyGivenLastNameFragment("Smith");
-        List<Company> companiesByAnyGivenNameFragment = searchFacade.retrieveCompaniesByAnyGivenNameFragment("Software Machine");
+        List<Employee> employeesByAnyGivenLastNameFragment = searchFacade.retrieveEmployeesByAnyGivenLastNameFragment("Smit");
+        List<Company> companiesByAnyGivenNameFragment = searchFacade.retrieveCompaniesByAnyGivenNameFragment("Software");
 
         //Then
-        Assert.assertEquals(1, employeesByAnyGivenLastNameFragment.size());
-        Assert.assertEquals(1, companiesByAnyGivenNameFragment.size());
+        Assert.assertEquals(4, employeesByAnyGivenLastNameFragment.size());
+        Assert.assertEquals(4, companiesByAnyGivenNameFragment.size());
 
         //CleanUp
         try {
