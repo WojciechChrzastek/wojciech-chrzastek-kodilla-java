@@ -13,7 +13,7 @@ import java.util.List;
 @NamedNativeQuery(
         name = "Employee.retrieveEmployeesByAnyGivenLastNameFragment",
         query = "SELECT * FROM employees" +
-                " WHERE LASTNAME LIKE :LASTNAMEFRAGMENT",
+                " WHERE LASTNAME LIKE CONCAT('%', :LASTNAMEFRAGMENT, '%')",
         resultClass = Employee.class
 )
 
