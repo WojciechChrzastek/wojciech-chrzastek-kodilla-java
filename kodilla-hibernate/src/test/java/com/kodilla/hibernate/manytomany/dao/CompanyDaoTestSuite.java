@@ -100,8 +100,8 @@ public class CompanyDaoTestSuite {
         List<Company> companiesByGivenNameSigns = companyDao.retrieveCompaniesByGivenNameSigns("Sof%");
 
         //Then
-        Assert.assertEquals(36, employeesByGivenLastname.size());
-        Assert.assertEquals(36, companiesByGivenNameSigns.size());
+        Assert.assertEquals(1, employeesByGivenLastname.size());
+        Assert.assertEquals(1, companiesByGivenNameSigns.size());
 
         //CleanUp
         try {
